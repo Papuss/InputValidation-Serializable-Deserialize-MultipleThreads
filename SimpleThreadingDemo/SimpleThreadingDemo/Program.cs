@@ -17,6 +17,9 @@ namespace SimpleThreadingDemo
 
             first.Start();
             second.Start();
+            
+            
+
 
             first.Join();
             second.Join();
@@ -29,7 +32,15 @@ namespace SimpleThreadingDemo
             for (int i = 1; i <= 10; i++)
             {
                 Console.WriteLine("Count: {0} - Thread: {1}", i, Thread.CurrentThread.ManagedThreadId);
-                Thread.Sleep(10);
+                Thread.Sleep(100);
+                try
+                {
+                   Thread.CurrentThread.Abort();
+                }
+                catch (ThreadAbortException tae)
+                {
+                    Console.WriteLine("OK " + tae.Message);
+                }
             }
         }
     }

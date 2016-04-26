@@ -36,7 +36,7 @@ namespace InputValidation
                 MessageBox.Show("The name is invalid (only alphabetical characters are allowed)");
             } 
 
-            if (!Regex.IsMatch(phoneTextbox.Text, @"^((\(\d{3}\)?)|(\d{3}-))?\d{3}-\d{4}$"))
+            if (!Regex.IsMatch(phoneTextbox.Text, @"^((\d{3}?)|(\d{3}-))?\d{3}-\d{4}$"))
             {
                 MessageBox.Show("The phone number is not a valid US phone number");
             }
